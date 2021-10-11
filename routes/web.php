@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
+use App\Models\PersonalInfo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('site.boot');
+    $resume = PersonalInfo::find(5);
+    return view('site.boot',compact('resume'));
 });
 Route::get('logout',[LoginController::class,'logout']);
 

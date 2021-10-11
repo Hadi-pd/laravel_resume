@@ -22,7 +22,7 @@
     <header class="d-print-none">
       <div class="container text-center text-lg-left">
         <div class="py-3 clearfix">
-          <h1 class="site-title mb-0">Joyce Harrison</h1>
+          <h1 class="site-title mb-0">{{$resume->name;}}</h1>
           <div class="site-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
@@ -49,8 +49,8 @@
         <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/avatar.jpg" width="200" height="200"/></div>
       </div>
       <div class="col-lg-8 col-md-7 text-center text-md-start">
-        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">Joyce Harrison</h2>
-        <p data-aos="fade-left" data-aos-delay="100">Graphic Designer & Web Developer</p>
+        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{$resume->name;}}</h2>
+        <p data-aos="fade-left" data-aos-delay="100">{{$resume->work_subject;}}</p>
         <div class="d-print-none" data-aos="fade-left" data-aos-delay="200"><a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="right-resume.pdf" target="_blank">Download CV</a><a class="btn btn-success shadow-sm mt-1" href="#contact">Hire Me</a></div>
       </div>
     </div>
@@ -59,7 +59,9 @@
     <div class="row">
       <div class="col-md-6">
         <h2 class="h3 mb-3">About Me</h2>
-        <p>Hello! I’m Joyce Harrison. I am passionate about UI/UX design and Web Design. I am a skilled Front-end Developer and master of Graphic Design tools such as Photoshop and Sketch.</p>
+        <p>
+          {{$resume->about;}}
+        </p>
       </div>
       <div class="col-md-5 offset-md-1">
         <div class="row mt-2">
@@ -67,25 +69,25 @@
             <div class="pb-1">Age</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">28</div>
+            <div class="pb-1 text-secondary">{{$resume->Age;}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Email</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">Joyce@company.com</div>
+            <div class="pb-1 text-secondary">{{$resume->email;}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Phone</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">+0718-111-0011</div>
+            <div class="pb-1 text-secondary">{{$resume->phone;}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Address</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">140, City Center, New York, U.S.A</div>
+            <div class="pb-1 text-secondary">{{$resume->address;}}</div>
           </div>
         </div>
       </div>
@@ -211,11 +213,11 @@
       <div class="col">
         <div class="mt-2">
           <h3 class="h6">Address</h3>
-          <div class="pb-2 text-secondary">140, City Center, New York, U.S.A</div>
+          <div class="pb-2 text-secondary">{{$resume->address;}}</div>
           <h3 class="h6">Phone</h3>
-          <div class="pb-2 text-secondary">+0718-111-0011</div>
+          <div class="pb-2 text-secondary">{{$resume->phone;}}</div>
           <h3 class="h6">Email</h3>
-          <div class="pb-2 text-secondary">Joyce@company.com</div>
+          <div class="pb-2 text-secondary">{{$resume->email;}}</div>
         </div>
       </div>
       <div class="col d-none d-print-block">
@@ -247,7 +249,7 @@
     <footer class="pt-4 pb-4 text-muted text-center d-print-none">
       <div class="container">
         <div class="my-3">
-          <div class="h4">Joyce Harrison</div>
+          <div class="h4">{{$resume->name;}}</div>
           <div class="footer-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
@@ -265,7 +267,7 @@
         </div>
         <div class="text-small">
           <div class="mb-1">&copy; Right Resume. All rights reserved.</div>
-          <div>Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a></div>
+          <div>Design - <a href="https://ebtekareno.ir/" target="_blank">Ebtekareno</a></div>
         </div>
       </div>
     </footer>
