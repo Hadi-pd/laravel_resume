@@ -35,12 +35,12 @@
                                 <div class="form-group">
                                     <label for="exampleTextarea1">About me</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                        value="{{ $edit ? $resume->about : '' }}" name="about"></textarea>
+                                        name="about">{{ $edit ? $resume->about : '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Age</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->age : '' }}" name="age">
+                                        value="{{ $edit ? $resume->Age : '' }}" name="age">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Email</label>
