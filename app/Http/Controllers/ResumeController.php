@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 
 class ResumeController extends Controller
@@ -13,7 +14,8 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        //
+        $edit = false;
+        return view('resume.index',compact('edit'));
     }
 
     /**
@@ -34,7 +36,17 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resume = PersonalInfo::create([
+            'name' => $request->name,
+            'work_subject' => $request->work_subject ,
+            'about' => $request->about,
+            'Age' => $request->age,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'image' => $request->image,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -54,9 +66,11 @@ class ResumeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($resume)
     {
-        //
+        $edit = true;
+        $resume = PersonalInfo::find($resume);
+        return view('resume.index',compact('resume','edit'));
     }
 
     /**
@@ -66,9 +80,19 @@ class ResumeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $resume)
     {
-        //
+        $person=PersonalInfo::find($resume);
+        $person->name = $request->name;
+        $person->work_subject = $request->work_subject;
+        $person->about = $request->about;
+        $person->age = $request->age;
+        $person->email = $request->email;
+        $person->phone = $request->phone;
+        $person->address = $request->address;
+        $person->image = $request->image;
+        $person->save();
+        return redirect(route('admin'));
     }
 
     /**
@@ -77,8 +101,10 @@ class ResumeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($resume)
     {
-        //
+        $person=PersonalInfo::find($resume);
+        $person->delete();
+        return redirect(route('admin'));
     }
 }
