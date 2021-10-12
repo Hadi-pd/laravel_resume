@@ -17,6 +17,7 @@ class CreateProfessionalSkillsTable extends Migration
             $table->id();
             $table->string('skill')->nullable();
             $table->integer('percent')->nullable();
+            $table->boolean('is_other')->default(0);
             $table->unsignedBigInteger('person_id');
             $table->foreign('person_id')->references('id')->on('personal_infos')->onDelete('cascade');
             $table->timestamps();

@@ -12,6 +12,7 @@ class ProfessionalSkill extends Model
     protected $fillable=[        
         'skill',
         'percent',
+        'is_other',
         'person_id',
     ];
 }
