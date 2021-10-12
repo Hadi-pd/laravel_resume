@@ -22,7 +22,7 @@
     <header class="d-print-none">
       <div class="container text-center text-lg-left">
         <div class="py-3 clearfix">
-          <h1 class="site-title mb-0">{{$resume->name;}}</h1>
+          <h1 class="site-title mb-0">{{($resume->name) ? $resume->name : ""}}</h1>
           <div class="site-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
@@ -49,8 +49,8 @@
         <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/avatar.jpg" width="200" height="200"/></div>
       </div>
       <div class="col-lg-8 col-md-7 text-center text-md-start">
-        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{$resume->name;}}</h2>
-        <p data-aos="fade-left" data-aos-delay="100">{{$resume->work_subject;}}</p>
+        <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">{{($resume->name) ? $resume->name : ""}}</h2>
+        <p data-aos="fade-left" data-aos-delay="100">{{($resume->work_subject) ? $resume->work_subject : ""}}</p>
         <div class="d-print-none" data-aos="fade-left" data-aos-delay="200"><a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="right-resume.pdf" target="_blank">Download CV</a><a class="btn btn-success shadow-sm mt-1" href="#contact">Hire Me</a></div>
       </div>
     </div>
@@ -60,7 +60,7 @@
       <div class="col-md-6">
         <h2 class="h3 mb-3">About Me</h2>
         <p>
-          {{$resume->about;}}
+          {{($resume->about) ? $resume->about : ""}}
         </p>
       </div>
       <div class="col-md-5 offset-md-1">
@@ -69,25 +69,25 @@
             <div class="pb-1">Age</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">{{$resume->Age;}}</div>
+            <div class="pb-1 text-secondary">{{($resume->Age) ? $resume->Age : " "}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Email</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">{{$resume->email;}}</div>
+            <div class="pb-1 text-secondary">{{($resume->email) ? $resume->email : " "}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Phone</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">{{$resume->phone;}}</div>
+            <div class="pb-1 text-secondary">{{($resume->phone) ? $resume->phone : " "}}</div>
           </div>
           <div class="col-sm-4">
             <div class="pb-1">Address</div>
           </div>
           <div class="col-sm-8">
-            <div class="pb-1 text-secondary">{{$resume->address;}}</div>
+            <div class="pb-1 text-secondary">{{($resume->address) ? $resume->address : ""}}</div>
           </div>
         </div>
       </div>
@@ -213,11 +213,11 @@
       <div class="col">
         <div class="mt-2">
           <h3 class="h6">Address</h3>
-          <div class="pb-2 text-secondary">{{$resume->address;}}</div>
+          <div class="pb-2 text-secondary">{{($resume->address) ? $resume->address : ""}}</div>
           <h3 class="h6">Phone</h3>
-          <div class="pb-2 text-secondary">{{$resume->phone;}}</div>
+          <div class="pb-2 text-secondary">{{($resume->phone) ? $resume->phone : ""}}</div>
           <h3 class="h6">Email</h3>
-          <div class="pb-2 text-secondary">{{$resume->email;}}</div>
+          <div class="pb-2 text-secondary">{{($resume->email) ? $resume->email : ""}}</div>
         </div>
       </div>
       <div class="col d-none d-print-block">
@@ -249,7 +249,7 @@
     <footer class="pt-4 pb-4 text-muted text-center d-print-none">
       <div class="container">
         <div class="my-3">
-          <div class="h4">{{$resume->name;}}</div>
+          <div class="h4">{{($resume->name) ? $resume->name : ""}}</div>
           <div class="footer-nav">
             <nav role="navigation">
               <ul class="nav justify-content-center">
