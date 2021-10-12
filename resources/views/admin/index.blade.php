@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <a class="btn btn-primary me-2" href="{{url('category')}}">Create Category</a>
       <a class="btn btn-primary me-2" href="{{url('resume')}}">Create Resume</a>
-      <a class="btn btn-primary me-2" href="{{url('skill')}}">Add Skill</a>
+      <a class="btn btn-primary me-2" href="{{url('skills')}}">Add Skill</a>
       <a class="btn btn-primary me-2" href="{{url('resume')}}">Add WorkExperience</a>
       <a class="btn btn-primary me-2" href="{{url('resume')}}">Add Education</a>
   
