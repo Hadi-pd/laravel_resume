@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
 use App\Models\PersonalInfo;
+use App\Models\ProfessionalSkill;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $resume = PersonalInfo::first();
-    return view('site.boot',compact('resume'));
+    $skills = ProfessionalSkill::all();
+    return view('site.boot',compact('resume','skills'));
 });
 Route::get('logout',[LoginController::class,'logout']);
 
