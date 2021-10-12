@@ -5,7 +5,7 @@
         <div class="content-wrapper">
 
             <a class="btn btn-primary me-2"
-                href="{{ $edit ? route('resume.update', $resume) : url('admin') }}">Back</a>
+                href="{{ $resume ? route('resume.update', $resume) : url('admin') }}">Back</a>
 
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
@@ -16,55 +16,54 @@
                                 Input Resume information to form
                             </p>
                             <form class="forms-sample" method="POST"
-                                action="{{ $edit ? route('resume.update', $resume) : url('resume') }}">
+                                action="{{ $resume ? route('resume.update', $resume) : url('resume') }}">
                                 @csrf
-                                @if ($edit)
+                                {{-- @if ($edit)
                                     @method('PUT')
-                                @endif
+                                @endif --}}
 
                                 <div class="form-group">
                                     <label for="exampleInputName1">Name</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->name : '' }}" name="name">
+                                        value="{{ ($resume) ? $resume->name : '' }}" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputCity1">Work subject</label>
                                     <input type="text" class="form-control" id="exampleInputCity1"
-                                        value="{{ $edit ? $resume->work_subject : '' }}" name="work_subject">
+                                        value="{{ ($resume) ? $resume->work_subject : '' }}" name="work_subject">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleTextarea1">About me</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                        name="about">{{ $edit ? $resume->about : '' }}</textarea>
+                                        name="about">{{ ($resume) ? $resume->about : '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Age</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->Age : '' }}" name="age">
+                                        value="{{ ($resume) ? $resume->Age : '' }}" name="age">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Email</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->email : '' }}" name="email">
+                                        value="{{ ($resume) ? $resume->email : '' }}" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Phone</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->phone : '' }}" name="phone">
+                                        value="{{ ($resume) ? $resume->phone : '' }}" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Address</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->address : '' }}" name="address">
+                                        value="{{ ($resume) ? $resume->address : '' }}" name="address">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Image</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ $edit ? $resume->image : '' }}" name="image">
+                                        value="{{ ($resume) ? $resume->image : '' }}" name="image">
                                 </div>
-                                @if ($edit)
+                                @if ($resume)
                                     <button type="submit" class="btn btn-primary me-2">Update</button>
-
                                 @else
                                     <button type="submit" class="btn btn-primary me-2">Submit</button>
                                 @endif

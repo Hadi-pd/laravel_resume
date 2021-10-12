@@ -14,9 +14,9 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        $edit = true;
+        //$edit = true;
         $resume = PersonalInfo::first();
-        return view('resume.index',compact('edit','resume'));
+        return view('resume.index',compact('resume'));
     }
 
     /**
@@ -69,9 +69,9 @@ class ResumeController extends Controller
      */
     public function edit($resume)
     {
-        $edit = true;
+       // $edit = true;
         $resume = PersonalInfo::find($resume);
-        return view('resume.index',compact('resume','edit'));
+        return view('resume.index',compact('resume'));
     }
 
     /**
