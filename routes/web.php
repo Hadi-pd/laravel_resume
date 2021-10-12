@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $resume = PersonalInfo::find(5);
+    $resume = PersonalInfo::first();
     return view('site.boot',compact('resume'));
 });
 Route::get('logout',[LoginController::class,'logout']);

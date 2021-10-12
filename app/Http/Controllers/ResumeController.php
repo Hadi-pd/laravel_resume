@@ -15,7 +15,7 @@ class ResumeController extends Controller
     public function index()
     {
         $edit = true;
-        $resume = PersonalInfo::find(5);
+        $resume = PersonalInfo::first();
         return view('resume.index',compact('edit','resume'));
     }
 
