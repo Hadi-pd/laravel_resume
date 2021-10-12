@@ -4,7 +4,10 @@
 <div class="main-panel">
     <div class="content-wrapper">
       <a class="btn btn-primary me-2" href="{{url('category')}}">Create Category</a>
-      <a class="btn btn-primary me-2" href="{{url('category')}}">Create Resume</a>
+      <a class="btn btn-primary me-2" href="{{url('resume')}}">Create Resume</a>
+      <a class="btn btn-primary me-2" href="{{url('resume')}}">Add Skill</a>
+      <a class="btn btn-primary me-2" href="{{url('resume')}}">Add WorkExperience</a>
+      <a class="btn btn-primary me-2" href="{{url('resume')}}">Add Education</a>
   
       <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
