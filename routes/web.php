@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\WorkExperienceController;
 use App\Models\PersonalInfo;
 use App\Models\ProfessionalSkill;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::get('admin',[AdminController::class,'index'])->name('admin');
 Route::resource('category', CategoryController::class);
 Route::resource('resume', ResumeController::class);
 Route::resource('skills', SkillsController::class);
+Route::resource('workexperience', WorkExperienceController::class);
 
 
  

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WorkExperience;
 use Illuminate\Http\Request;
 
 class WorkExperienceController extends Controller
@@ -13,7 +14,9 @@ class WorkExperienceController extends Controller
      */
     public function index()
     {
-        //
+        $edit = false;
+        $works = WorkExperience::all();
+        return view('resume.workex', compact('edit','works'));
     }
 
     /**
@@ -34,7 +37,13 @@ class WorkExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = WorkExperience::create([  
+            'work_name'=> $request->work_name,
+            'company_name'=> $request->company_name,
+            'date'=> $request->date,
+            'description'=> $request->description
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -54,9 +63,11 @@ class WorkExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($work)
     {
-        //
+        $edit = true;
+        $work = WorkExperience::find($work);
+        return view('resume.workex',compact('work','edit'));
     }
 
     /**
@@ -66,9 +77,16 @@ class WorkExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $work)
     {
-        //
+
+        $cat=WorkExperience::find($work);
+        $cat->work_name = $request->work_name;
+        $cat->company_name = $request->company_name;
+        $cat->date = $request->date;
+        $cat->description = $request->description;
+        $cat->save();
+        return redirect()->back();
     }
 
     /**
@@ -77,8 +95,10 @@ class WorkExperienceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($work)
     {
-        //
+        $cat=WorkExperience::find($work);
+        $cat->delete();
+        return redirect()->back();
     }
 }
