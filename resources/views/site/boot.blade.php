@@ -153,8 +153,6 @@
                 <div class="work-experience-section px-3 px-lg-4">
                     <h2 class="h3 mb-4">Work Experience</h2>
                     <div class="timeline">
-                        
-
                             @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
@@ -167,30 +165,6 @@
                                 </div>
                               </div>
                             @endforeach
-
-
-
-                        
-                        <div class="timeline-card timeline-card-primary card shadow-sm">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Graphic Designer <span class="text-muted h6">at Design
-                                        Studio</span></div>
-                                <div class="text-muted text-small mb-2">June, 2013 - May, 2015</div>
-                                <div>Override the digital divide with additional clickthroughs from DevOps.
-                                    Nanotechnology immersion along the information highway will close the loop on
-                                    focusing solely on the bottom line.</div>
-                            </div>
-                        </div>
-                        <div class="timeline-card timeline-card-primary card shadow-sm">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Junior Web Developer <span class="text-muted h6">at Indie
-                                        Studio</span></div>
-                                <div class="text-muted text-small mb-2">Jan, 2011 - May, 2013</div>
-                                <div>User generated content in real-time will have multiple touchpoints for offshoring.
-                                    Organically grow the holistic world view of disruptive innovation via workplace
-                                    diversity and empowerment.</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <hr class="d-print-none" />
