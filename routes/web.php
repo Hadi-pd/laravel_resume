@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Models\Education;
 use App\Models\PersonalInfo;
 use App\Models\ProfessionalSkill;
 use App\Models\WorkExperience;
@@ -26,7 +28,8 @@ Route::get('/', function () {
     $resume = PersonalInfo::first();
     $skills = ProfessionalSkill::all();
     $works = WorkExperience::all();
-    return view('site.boot',compact('resume','skills','works'));
+    $educations = Education::all();
+    return view('site.boot',compact('resume','skills','works','educations'));
 });
 Route::get('logout',[LoginController::class,'logout']);
 
@@ -37,6 +40,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('resume', ResumeController::class);
 Route::resource('skills', SkillsController::class);
 Route::resource('workexperience', WorkExperienceController::class);
+Route::resource('education', EducationController::class);
 
 
  
