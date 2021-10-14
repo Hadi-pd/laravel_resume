@@ -58,25 +58,27 @@
       <li class="nav-item active">
         <a class="nav-link " href="{{url('/')}}">
           <i class="mdi mdi-grid-large menu-icon"></i>
-          <span class="menu-title">Dashboard</span>
+          <span class="menu-title">See Website</span>
         </a>
       </li>
       <li class="nav-item nav-category">Home</li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="menu-icon mdi mdi-floor-plan"></i>
-          <span class="menu-title">appartment</span>
+          <span class="menu-title">Resume Parts</span>
           <i class="menu-arrow"></i> 
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="#">child1</a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">child2</a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">child3</a></li>
+
+            <li class="nav-item"> <a class="nav-link" href="{{url('resume')}}">Create Resume</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('skills')}}">Add Skill</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('workexperience')}}">Add WorkExperience</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('education')}}">Add Education</a></li>
           </ul>
         </div>
       </li>
-      <li class="nav-item nav-category">Mobile</li>
+      {{-- <li class="nav-item nav-category">Mobile</li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="ui-basic">
           <i class="menu-icon mdi mdi-floor-plan"></i>
@@ -90,7 +92,7 @@
             <li class="nav-item"> <a class="nav-link" href="#">child3</a></li>
           </ul>
         </div>
-      </li>
+      </li> --}}
 
     </ul>
   </nav>

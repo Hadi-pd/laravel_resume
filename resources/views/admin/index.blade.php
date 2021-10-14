@@ -3,66 +3,50 @@
   
 <div class="main-panel">
     <div class="content-wrapper">
-      <a class="btn btn-primary me-2" href="{{url('category')}}">Create Category</a>
-      <a class="btn btn-primary me-2" href="{{url('resume')}}">Create Resume</a>
-      <a class="btn btn-primary me-2" href="{{url('skills')}}">Add Skill</a>
-      <a class="btn btn-primary me-2" href="{{url('resume')}}">Add WorkExperience</a>
-      <a class="btn btn-primary me-2" href="{{url('resume')}}">Add Education</a>
-  
       <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Category table</h4>
-              <p class="card-description">
-                Add Categories 
-              </p>
-              <div class="table-responsive pt-3">
-                <table class="table table-dark">
-                  <thead>
-                    <tr>
-                      <th> id     </th>
-                      <th> Name   </th>
-                      <th> Parent_id </th>
-                      <th> Subject   </th>
-                      <th>Delete/Edit</th>
-                  
-  
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($categories as  $category)
-                      
-                      <tr>
-                          <td>{{$category->id}}   </td>
-                          <td>{{$category->name}} </td>
-                          <td> {{$category->parent_id}}</td>
-                          <td> {{$category->subject}}</td>
-                          <td>
-  
-                            <div class="d-flex">
-                              <form method="POST" action="{{route('category.destroy',$category)}}">
-                                @csrf
-                                @method('DELETE')
-                              <button type="submit" style="background:unset; border:none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="delete-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                              </button>
-                              </form>
-                                  <a  href="{{route('category.edit',$category)}}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="edit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
-                                  </a>
-                            </div>
-                          </td>
-                      </tr>
-                    @endforeach
-  
-                  </tbody>
-                </table>
+            <div class="card-body d-flex">
+
+              <a href="{{url('resume')}}">
+                <div class="card text-center" style="width: 15rem; margin: 0px 20px 10px 0px;">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>                
+                  <div class="card-body">
+                    <h3 class="card-text">
+                      Personal Information
+                    </h3>
+                </div>
               </div>
+              </a>
+
+              <a href="{{url('skills')}}">
+                <div class="card text-center" style="width: 15rem; margin: 0px 20px 10px 0px;">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>                  
+                    <h3 class="card-text">
+                      Skills
+                    </h3>
+                </div>
+              </a>
+
+              <a href="{{url('workexperience')}}">
+                <div class="card text-center" style="width: 15rem; margin: 0px 20px 10px 0px;">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    <h3 class="card-text">
+                    Work Experience
+                    </h3>
+                </div>
+              </a>
+
+
+              <a href="{{url('education')}}">
+                <div class="card text-center" style="width: 15rem; margin: 0px 20px 10px 0px;">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>                    
+                  <h3 class="card-text">
+                    Educations
+                    </h3>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>
