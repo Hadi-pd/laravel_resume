@@ -14,9 +14,9 @@ class ResumeController extends Controller
      */
     public function index()
     {
-        //$edit = true;
+        $edit = true;
         $resume = PersonalInfo::first();
-        return view('resume.index',compact('resume'));
+        return view('resume.index',compact('resume','edit'));
     }
 
     /**
@@ -37,6 +37,12 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
+
+        $image = $request->file('image');
+        $imageName = time().'-'.$image->getClientOriginalExtension();
+        $path = public_path('/images');
+        $image->move($path,$imageName);
+        
         $resume = PersonalInfo::create([
             'name' => $request->name,
             'work_subject' => $request->work_subject ,
@@ -45,7 +51,7 @@ class ResumeController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
-            'image' => $request->image,
+            'image' => '/images/'.$imageName,
         ]);
         return redirect()->back();
     }
@@ -83,6 +89,12 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $resume)
     {
+
+        $image = $request->file('image');
+        $imageName = 'avatar'.'.'.$image->getClientOriginalExtension();
+        $path = public_path('/images');
+        $image->move($path,$imageName);
+
         $person=PersonalInfo::find($resume);
         $person->name = $request->name;
         $person->work_subject = $request->work_subject;
@@ -91,7 +103,7 @@ class ResumeController extends Controller
         $person->email = $request->email;
         $person->phone = $request->phone;
         $person->address = $request->address;
-        $person->image = $request->image;
+        $person->image = '/images/'.$imageName;
         $person->save();
         return redirect(route('admin'));
     }

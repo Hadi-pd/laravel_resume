@@ -15,12 +15,12 @@
                             <p class="card-description">
                                 Input Resume information to form
                             </p>
-                            <form class="forms-sample" method="POST"
+                            <form class="forms-sample" method="POST" enctype="multipart/form-data"
                                 action="{{ $resume ? route('resume.update', $resume) : url('resume') }}">
                                 @csrf
-                                {{-- @if ($edit)
+                                @if ($edit)
                                     @method('PUT')
-                                @endif --}}
+                                @endif
 
                                 <div class="form-group">
                                     <label for="exampleInputName1">Name</label>
@@ -59,8 +59,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Image</label>
-                                    <input type="text" class="form-control" id="exampleInputName1"
-                                        value="{{ ($resume) ? $resume->image : '' }}" name="image">
+                                    <input type="file" class="form-control" id="exampleInputName1"
+                                        value="{{ ($resume) ? $resume->image : '' }}" 
+                                        name="image">
                                 </div>
                                 @if ($resume)
                                     <button type="submit" class="btn btn-primary me-2">Update</button>
