@@ -89,7 +89,6 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $resume)
     {
-
         $image = $request->file('image');
         $imageName = 'avatar'.'.'.$image->getClientOriginalExtension();
         $path = public_path('/images');
