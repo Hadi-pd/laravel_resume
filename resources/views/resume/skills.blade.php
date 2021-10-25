@@ -6,7 +6,7 @@
 
             <a class="btn btn-primary me-2" href="{{ $edit ? route('skills.update', $skills) : url('admin') }}">Back</a>
 
-            @if (!$edit)
+            @if (!$edit && !$skills->isEmpty())
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
