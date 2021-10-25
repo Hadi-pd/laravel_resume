@@ -11,6 +11,7 @@ use App\Http\Controllers\WorkExperienceController;
 use App\Models\Education;
 use App\Models\PersonalInfo;
 use App\Models\ProfessionalSkill;
+use App\Models\SocialNetwork;
 use App\Models\WorkExperience;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,8 @@ Route::get('/', function () {
     $skills = ProfessionalSkill::all();
     $works = WorkExperience::all();
     $educations = Education::all();
-    return view('site.boot',compact('resume','skills','works','educations'));
+    $socialnetwork = SocialNetwork::all();
+    return view('site.boot',compact('resume','skills','works','educations','socialnetwork'));
 });
 Route::get('logout',[LoginController::class,'logout']);
 Route::middleware(['auth', 'isAdmin'])->group(function() {

@@ -29,39 +29,14 @@
                 <div class="site-nav">
                     <nav role="navigation">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip"
-                                    title="Twitter"><i class="fab fa-twitter"></i><span
-                                        class="menu-title sr-only">Twitter</span></a>
+
+                            @foreach ( $socialnetwork as $network )
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{$network->link}}" title="{{$network->name}}">
+                                    <i class="fab fa-{{$network->icon}}"></i>
+                                    <span class="menu-title sr-only">{{$network->name}}</span></a>
                             </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://www.facebook.com/templateflip" title="Facebook"><i
-                                        class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://www.instagram.com/templateflip" title="Instagram"><i
-                                        class="fab fa-instagram"></i><span
-                                        class="menu-title sr-only">Instagram</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-github"></i><span
-                                        class="menu-title sr-only">Github</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-dribbble"></i><span
-                                        class="menu-title sr-only">Github</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-telegram"></i><span
-                                        class="menu-title sr-only">Github</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-github"></i><span
-                                        class="menu-title sr-only">Github</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
-                                    title="Github"><i class="fab fa-github"></i><span
-                                        class="menu-title sr-only">Github</span></a>
-                            </li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>
@@ -240,26 +215,14 @@
                         <div class="col d-none d-print-block">
                             <div class="mt-2">
                                 <div>
+                                    @foreach ($socialnetwork as $network )
                                     <div class="mb-2">
                                         <div class="text-dark"><i
-                                                class="fab fa-twitter mr-1"></i><span>https://twitter.com/templateflip</span>
+                                                class="fab fa-{{$network->icon}} mr-1"></i><span>{{$network->link}}</span>
                                         </div>
                                     </div>
-                                    <div class="mb-2">
-                                        <div class="text-dark"><i
-                                                class="fab fa-facebook mr-1"></i><span>https://www.facebook.com/templateflip</span>
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <div class="text-dark"><i
-                                                class="fab fa-instagram mr-1"></i><span>https://www.instagram.com/templateflip</span>
-                                        </div>
-                                    </div>
-                                    <div class="mb-2">
-                                        <div class="text-dark"><i
-                                                class="fab fa-github mr-1"></i><span>https://github.com/templateflip</span>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                 
                                 </div>
                             </div>
                         </div>
@@ -275,24 +238,14 @@
                 <div class="footer-nav">
                     <nav role="navigation">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://twitter.com/templateflip" title="Twitter"><i
-                                        class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
+                           
+                            @foreach ( $socialnetwork as $network )
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{$network->link}}" title="{{$network->name}}">
+                                    <i class="fab fa-{{$network->icon}}"></i>
+                                    <span class="menu-title sr-only">{{$network->name}}</span></a>
                             </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://www.facebook.com/templateflip" title="Facebook"><i
-                                        class="fab fa-facebook"></i><span
-                                        class="menu-title sr-only">Facebook</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://www.instagram.com/templateflip" title="Instagram"><i
-                                        class="fab fa-instagram"></i><span
-                                        class="menu-title sr-only">Instagram</span></a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="https://github.com/templateflip" title="Github"><i
-                                        class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
-                            </li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>

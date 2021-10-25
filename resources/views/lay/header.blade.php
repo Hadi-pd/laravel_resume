@@ -75,6 +75,7 @@
             <li class="nav-item"> <a class="nav-link" href="{{url('skills')}}">Add Skill</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('workexperience')}}">Add WorkExperience</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('education')}}">Add Education</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('socialnetwork')}}">Add SocialNetwork</a></li>
           </ul>
         </div>
       </li>
