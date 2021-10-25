@@ -13,9 +13,10 @@ class ResumeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $edit = true;
+    {  
+       // $edit = false;
         $resume = PersonalInfo::first();
+        $edit = ($resume->name) ? true : false;
         return view('resume.index',compact('resume','edit'));
     }
 
@@ -39,9 +40,9 @@ class ResumeController extends Controller
     {
 
         $image = $request->file('image');
-        $imageName = time().'-'.$image->getClientOriginalExtension();
+        $imageName = ($image) ? 'avatar'.'.'.$image->getClientOriginalExtension() : 'avatar.jpg';
         $path = public_path('/images');
-        $image->move($path,$imageName);
+        ($image) ? $image->move($path,$imageName) : '';
         
         $resume = PersonalInfo::create([
             'name' => $request->name,
@@ -90,9 +91,9 @@ class ResumeController extends Controller
     public function update(Request $request, $resume)
     {
         $image = $request->file('image');
-        $imageName = 'avatar'.'.'.$image->getClientOriginalExtension();
+        $imageName = ($image) ? 'avatar'.'.'.$image->getClientOriginalExtension() : 'avatar.jpg';
         $path = public_path('/images');
-        $image->move($path,$imageName);
+        ($image) ? $image->move($path,$imageName) : '';
 
         $person=PersonalInfo::find($resume);
         $person->name = $request->name;
