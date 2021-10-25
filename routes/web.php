@@ -6,6 +6,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\WorkExperienceController;
 use App\Models\Education;
 use App\Models\PersonalInfo;
@@ -32,8 +33,6 @@ Route::get('/', function () {
     return view('site.boot',compact('resume','skills','works','educations'));
 });
 Route::get('logout',[LoginController::class,'logout']);
-
-
 Route::middleware(['auth', 'isAdmin'])->group(function() {
 Route::get('admin',[AdminController::class,'index'])->name('admin');
 Route::resource('category', CategoryController::class);
@@ -41,7 +40,5 @@ Route::resource('resume', ResumeController::class);
 Route::resource('skills', SkillsController::class);
 Route::resource('workexperience', WorkExperienceController::class);
 Route::resource('education', EducationController::class);
-
-
- 
+Route::resource('socialnetwork', SocialNetworkController::class);
 });
