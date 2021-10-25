@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume Creator</title>
+    <title>{{ $resume ? $resume->name : 'Resume Creator' }}</title>
     <link href="css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
@@ -41,6 +41,22 @@
                                     href="https://www.instagram.com/templateflip" title="Instagram"><i
                                         class="fab fa-instagram"></i><span
                                         class="menu-title sr-only">Instagram</span></a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
+                                    title="Github"><i class="fab fa-github"></i><span
+                                        class="menu-title sr-only">Github</span></a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
+                                    title="Github"><i class="fab fa-dribbble"></i><span
+                                        class="menu-title sr-only">Github</span></a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
+                                    title="Github"><i class="fab fa-telegram"></i><span
+                                        class="menu-title sr-only">Github</span></a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
+                                    title="Github"><i class="fab fa-github"></i><span
+                                        class="menu-title sr-only">Github</span></a>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="https://github.com/templateflip"
                                     title="Github"><i class="fab fa-github"></i><span
@@ -153,7 +169,7 @@
                 <div class="work-experience-section px-3 px-lg-4">
                     <h2 class="h3 mb-4">Work Experience</h2>
                     <div class="timeline">
-                            @foreach ($works as $work)
+                        @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
                                     <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">at
@@ -163,8 +179,8 @@
                                         {{ $work->description }}
                                     </div>
                                 </div>
-                              </div>
-                            @endforeach
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <hr class="d-print-none" />
@@ -173,16 +189,16 @@
                     <h2 class="h3 mb-4">Education</h2>
                     <div class="timeline">
                         @foreach ($educations as $education)
-                        <div class="timeline-card timeline-card-success card shadow-sm">
-                            <div class="card-body">
-                                <div class="h5 mb-1">{{$education->education_subject}} <span
-                                        class="text-muted h6">from {{$education->college}}</span></div>
-                                <div class="text-muted text-small mb-2">{{$education->date}}</div>
-                                <div>
-                                    {{$education->description}}
+                            <div class="timeline-card timeline-card-success card shadow-sm">
+                                <div class="card-body">
+                                    <div class="h5 mb-1">{{ $education->education_subject }} <span
+                                            class="text-muted h6">from {{ $education->college }}</span></div>
+                                    <div class="text-muted text-small mb-2">{{ $education->date }}</div>
+                                    <div>
+                                        {{ $education->description }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
