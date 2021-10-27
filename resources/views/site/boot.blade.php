@@ -183,14 +183,17 @@
                     <div class="row">
                         <div class="col-md-7 d-print-none">
                             <div class="my-2">
-                                <form action="https://formspree.io/your@email.com" method="POST">
+                                {{-- <form action="https://formspree.io/your@email.com" method="POST"> --}}
+
+                                <form action="{{url('sendcontact')}}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-6">
                                             <input class="form-control" type="text" id="name" name="name"
                                                 placeholder="Your Name" required>
                                         </div>
                                         <div class="col-6">
-                                            <input class="form-control" type="email" id="email" name="_replyto"
+                                            <input class="form-control" type="email" id="email" name="email"
                                                 placeholder="Your E-mail" required>
                                         </div>
                                     </div>
@@ -200,6 +203,7 @@
                                     </div>
                                     <button class="btn btn-primary mt-2" type="submit">Send</button>
                                 </form>
+
                             </div>
                         </div>
                         <div class="col">

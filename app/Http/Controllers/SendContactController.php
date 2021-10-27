@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class SendContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
-        return view('resume.contacts',compact('contacts'));
+        //
     }
 
     /**
@@ -36,7 +36,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $details = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+            'is_sent' => 0,
+        ]);
+        $email = PersonalInfo::first()->email;
+        \Mail::to($email)->send(new \App\Mail\ContactMail($details));
+        return redirect()->back();
     }
 
     /**
@@ -79,10 +88,8 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($contact)
+    public function destroy($id)
     {
-        $message = Contact::find($contact);
-        $message->delete();
-        return redirect()->back();
+        //
     }
 }

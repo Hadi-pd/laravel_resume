@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CodePortal</title>
+    <title>New Message</title>
 </head>
 <body>
-    <h1>{{ $details['title'] }}</h1>
-    <p>{{ $details['body'] }}</p>
-   
-    <p>-- Team CodePortal</p>
+    <h6> Message form: </h6>
+    <h3>{{ $details['name'] }}</h3>
+    <br>
+    <p>{{ $details['email'] }}</p>
+    <br>
+    <p>{{ $details['message']}}</p>
 </body>
 </html>
