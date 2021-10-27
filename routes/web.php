@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Models\Contact;
 use App\Models\Education;
 use App\Models\PersonalInfo;
 use App\Models\ProfessionalSkill;
@@ -26,6 +28,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('test-mail', function () {
+    $details = [
+        'title' => 'Hello there,',
+        'body' => 'Greetings from CodePortal!!'
+    ];
+    \Mail::to('h7ad3i@gmail.com')->send(new \App\Mail\ContactMail($details));
+    dd("Mail sent!!");
+});
+
+
 Route::get('/', function () {
     $resume = PersonalInfo::first();
     $skills = ProfessionalSkill::all();
@@ -43,4 +55,5 @@ Route::resource('skills', SkillsController::class);
 Route::resource('workexperience', WorkExperienceController::class);
 Route::resource('education', EducationController::class);
 Route::resource('socialnetwork', SocialNetworkController::class);
+Route::resource('contacts', ContactController::class);
 });
