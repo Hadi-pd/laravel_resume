@@ -10,6 +10,8 @@
     <link href="css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
     <link href="css/aos.css?ver=1.2.0" rel="stylesheet">
     <link href="css/main.css?ver=1.2.0" rel="stylesheet">
+    <link href="css/rtl.css" rel="stylesheet">
+
     <noscript>
         <style type="text/css">
             [data-aos] {
@@ -59,15 +61,15 @@
                             </p>
                             <div class="d-print-none" data-aos="fade-left" data-aos-delay="200"><a
                                     class="btn btn-light text-dark shadow-sm mt-1 me-1" href="right-resume.pdf"
-                                    target="_blank">Download CV</a><a class="btn btn-success shadow-sm mt-1"
-                                    href="#contact">Hire Me</a></div>
+                                    target="_blank">دانلود رزومه</a><a class="btn btn-success shadow-sm mt-1"
+                                    href="#contact">دعوت به همکاری</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="about-section pt-4 px-3 px-lg-4 mt-1">
                     <div class="row">
                         <div class="col-md-6">
-                            <h2 class="h3 mb-3">About Me</h2>
+                            <h2 class="h3 mb-3"> درباره من</h2>
                             <p>
                                 {{ $resume ? $resume->about : '' }}
                             </p>
@@ -75,25 +77,25 @@
                         <div class="col-md-5 offset-md-1">
                             <div class="row mt-2">
                                 <div class="col-sm-4">
-                                    <div class="pb-1">Age</div>
+                                    <div class="pb-1">سن</div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="pb-1 text-secondary">{{ $resume ? $resume->Age : ' ' }}</div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div class="pb-1">Email</div>
+                                    <div class="pb-1">ایمیل</div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="pb-1 text-secondary">{{ $resume ? $resume->email : ' ' }}</div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div class="pb-1">Phone</div>
+                                    <div class="pb-1">تلفن</div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="pb-1 text-secondary">{{ $resume ? $resume->phone : ' ' }}</div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div class="pb-1">Address</div>
+                                    <div class="pb-1">آدرس</div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="pb-1 text-secondary">{{ $resume ? $resume->address : '' }}</div>
@@ -104,13 +106,13 @@
                 </div>
                 <hr class="d-print-none" />
                 <div class="skills-section px-3 px-lg-4">
-                    <h2 class="h3 mb-3">Professional Skills</h2>
-                    <div class="row">
+                    <h2 class="h3 mb-3">مهارت های فنی </h2>
+                    <div class="row skills_row">
                         <div class="col-md-6">
 
                             @foreach ($skills as $skill)
                                 @if (!$skill->is_other)
-                                    <div class="mb-2">
+                                    <div class="mb-2 skills_mb-2">
                                         <span>{{ $skill->skill }}</span>
                                         <div class="progress my-1">
                                             <div class="progress-bar bg-primary" role="progressbar"
@@ -126,7 +128,7 @@
                         <div class="col-md-6">
                             @foreach ($skills as $skill)
                                 @if ($skill->is_other)
-                                    <div class="mb-2"><span>{{ $skill->skill }}</span>
+                                    <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span>
                                         <div class="progress my-1">
                                             <div class="progress-bar bg-success" role="progressbar"
                                                 data-aos="zoom-in-right" data-aos-delay="400"
@@ -142,12 +144,12 @@
                 </div>
                 <hr class="d-print-none" />
                 <div class="work-experience-section px-3 px-lg-4">
-                    <h2 class="h3 mb-4">Work Experience</h2>
+                    <h2 class="h3 mb-4">تجربه های کاری</h2>
                     <div class="timeline">
                         @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
-                                    <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">at
+                                    <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">در 
                                             {{ $work->company_name }}</span></div>
                                     <div class="text-muted text-small mb-2">{{ $work->date }} </div>
                                     <div>
@@ -161,13 +163,13 @@
                 <hr class="d-print-none" />
                 <div class="page-break"></div>
                 <div class="education-section px-3 px-lg-4 pb-4">
-                    <h2 class="h3 mb-4">Education</h2>
+                    <h2 class="h3 mb-4">تحصیلات</h2>
                     <div class="timeline">
                         @foreach ($educations as $education)
                             <div class="timeline-card timeline-card-success card shadow-sm">
                                 <div class="card-body">
                                     <div class="h5 mb-1">{{ $education->education_subject }} <span
-                                            class="text-muted h6">from {{ $education->college }}</span></div>
+                                            class="text-muted h6">از {{ $education->college }}</span></div>
                                     <div class="text-muted text-small mb-2">{{ $education->date }}</div>
                                     <div>
                                         {{ $education->description }}
@@ -179,7 +181,7 @@
                 </div>
                 <hr class="d-print-none" />
                 <div class="contant-section px-3 px-lg-4 pb-4" id="contact">
-                    <h2 class="h3 text mb-3">Contact</h2>
+                    <h2 class="h3 text mb-3">تماس با من</h2>
                     <div class="row">
                         <div class="col-md-7 d-print-none">
                             <div class="my-2">
@@ -190,29 +192,29 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <input class="form-control" type="text" id="name" name="name"
-                                                placeholder="Your Name" required>
+                                                placeholder="نام شما" required>
                                         </div>
                                         <div class="col-6">
                                             <input class="form-control" type="email" id="email" name="email"
-                                                placeholder="Your E-mail" required>
+                                                placeholder="ایمیل شما" required>
                                         </div>
                                     </div>
                                     <div class="form-group my-2">
                                         <textarea class="form-control" style="resize: none;" id="message"
-                                            name="message" rows="4" placeholder="Your Message" required></textarea>
+                                            name="message" rows="4" placeholder="پیام شما" required></textarea>
                                     </div>
-                                    <button class="btn btn-primary mt-2" type="submit">Send</button>
+                                    <button class="btn btn-primary mt-2" type="submit">ارسال</button>
                                 </form>
 
                             </div>
                         </div>
                         <div class="col">
                             <div class="mt-2">
-                                <h3 class="h6">Address</h3>
+                                <h3 class="h6">آدرس</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->address : '' }}</div>
-                                <h3 class="h6">Phone</h3>
+                                <h3 class="h6">تلفن</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->phone : '' }}</div>
-                                <h3 class="h6">Email</h3>
+                                <h3 class="h6">ایمیل</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->email : '' }}</div>
                             </div>
                         </div>

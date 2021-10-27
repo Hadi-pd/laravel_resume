@@ -1,0 +1,50 @@
+*,
+::after,
+::before {
+    direction: rtl;
+}
+.avatar {
+    margin-bottom: -80px;
+    margin-right: 0;
+}
+.text-md-start {
+    text-align: right !important;
+}
+.me-1 {
+    margin-left: 0.5rem !important;
+}
+
+
+.timeline {
+    border-right: 2px solid #E6E9ED;
+    border-left: 0px;
+ }
+  
+  .timeline-card {
+    margin-right: 31px;
+    border-right: 2px solid;
+    margin-left: 0px;
+    border-left: 1px solid #ddd;
+     }
+  
+  .timeline-card:before {
+    right: -41px;
+    left: 0px;
+     }
+  
+  .timeline-card:after {
+    right: -29px;
+    left: 0px; }
+  
+  .timeline-card-primary {
+    border-right-color: #4A89DC; }
+  
+  .timeline-card-success {
+    border-right-color: #37BC9B; 
+    /* border-left-color: #37BC9B;  */
+}
+ 
+.progress , .skills_row , .skills_mb-2 {
+    direction: ltr;
+}
+  
