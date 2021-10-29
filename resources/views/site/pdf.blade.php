@@ -294,8 +294,9 @@
                 </td>
 
                 <td style="text-align:center;">
-                    <img style="border: 10px solid #fff;" src="images/avatar.jpg" width="200"
-                    height="200" />
+                    <div style="color:#fff;">
+                    {!! QrCode::size(150)->generate( url('/').'/#contact'); !!}
+                    </div>
                 </td>
             </tr>
         </table>
