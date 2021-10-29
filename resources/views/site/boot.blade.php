@@ -60,8 +60,8 @@
                             <p data-aos="fade-left" data-aos-delay="100">{{ $resume ? $resume->work_subject : '' }}
                             </p>
                             <div class="d-print-none" data-aos="fade-left" data-aos-delay="200"><a
-                                    class="btn btn-light text-dark shadow-sm mt-1 me-1" href="right-resume.pdf"
-                                    target="_blank">دانلود رزومه</a><a class="btn btn-success shadow-sm mt-1"
+                                    class="btn btn-light text-dark shadow-sm mt-1 me-1" href="create-pdf-file"
+                                    target="_blank" download>دانلود رزومه</a><a class="btn btn-success shadow-sm mt-1"
                                     href="#contact">دعوت به همکاری</a></div>
                         </div>
                     </div>
