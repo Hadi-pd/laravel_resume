@@ -10,6 +10,7 @@ use App\Http\Controllers\SendContactController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\SocialNetworkController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Http\Controllers\PDFController;
 use App\Models\Contact;
 use App\Models\Education;
 use App\Models\PersonalInfo;
@@ -29,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('create-pdf-file', [PDFController::class, 'index']);
 Route::get('/', function () {
     $resume = PersonalInfo::first();
     $skills = ProfessionalSkill::all();
