@@ -257,8 +257,8 @@
                 </div>
             </div>
             <div class="text-small">
-                <div class="mb-1">&copy; Right Resume. All rights reserved.</div>
-                <div>Design - <a href="https://ebtekareno.ir/" target="_blank">Ebtekareno</a></div>
+                {{-- <div class="mb-1">&copy; Right Resume. All rights reserved.</div> --}}
+                <div> <a href="https://ebtekareno.ir/" target="_blank">Ebtekareno</a></div>
             </div>
         </div>
     </footer>

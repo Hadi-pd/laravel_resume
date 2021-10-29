@@ -4,7 +4,7 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Web Learn </title>
+      <title>Resume Creator </title>
       <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
       <link rel="stylesheet" href="{{asset('vendors/simple-line-icons/css/simple-line-icons.css')}}">
       <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
