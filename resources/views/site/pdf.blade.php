@@ -288,8 +288,10 @@
             <tr>
                 <td style="text-align:left;">
                     @foreach ($socialnetwork as $network )
+                    <a style="text-decoration: none; color:#222" href="https://{{$network->link}}" title="{{$network->name}}" >
                         <div class="text-dark">{{$network->name}} : <span>{{$network->link}}</span>
                         </div>
+                    </a>
                     @endforeach
                 </td>
 
