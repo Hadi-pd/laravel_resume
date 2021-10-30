@@ -43,6 +43,22 @@
                                         value="{{ ($resume) ? $resume->Age : '' }}" name="age">
                                 </div>
                                 <div class="form-group">
+                                    <label for="exampleInputName1">marital</label>
+                                    <select class="form-select" aria-label="Default select example" name="marital">
+                                        <option value="مجرد" {{ ($resume->marital == 'مجرد') ? 'selected' : '' }}>مجرد</option>
+                                        <option value="متأهل" {{ ($resume->marital == 'متأهل') ? 'selected' : '' }}>متأهل</option>
+                                      </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">military</label>
+                                    <select class="form-select" aria-label="Default select example" name="military">
+                                        <option value="پایان خدمت" {{ ($resume->military == 'پایان خدمت') ? 'selected' : '' }}>پایان خدمت</option>
+                                        <option value="معاف" {{ ($resume->military == 'معاف') ? 'selected' : '' }}>معاف</option>
+                                        <option value="هنوز نرفته ام" {{ ($resume->military == 'هنوز نرفته ام') ? 'selected' : '' }}>هنوز نرفته ام</option>
+                                      </select>
+                                </div>
+                                
+                                <div class="form-group">
                                     <label for="exampleInputName1">Email</label>
                                     <input type="text" class="form-control" id="exampleInputName1"
                                         value="{{ ($resume) ? $resume->email : '' }}" name="email">

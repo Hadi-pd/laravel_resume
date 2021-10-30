@@ -83,6 +83,18 @@
                                     <div class="pb-1 text-secondary">{{ $resume ? $resume->Age : ' ' }}</div>
                                 </div>
                                 <div class="col-sm-4">
+                                    <div class="pb-1">تأهل</div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="pb-1 text-secondary">{{ $resume ? $resume->marital : ' ' }}</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="pb-1">نظام وظیفه</div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="pb-1 text-secondary">{{ $resume ? $resume->military : ' ' }}</div>
+                                </div>
+                                <div class="col-sm-4">
                                     <div class="pb-1">ایمیل</div>
                                 </div>
                                 <div class="col-sm-8">

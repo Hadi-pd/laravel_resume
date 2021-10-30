@@ -30,7 +30,7 @@ class PDFController extends Controller
         set_time_limit(400);
         $pdf = PDF::loadView('site.pdf', compact('resume', 'skills', 'works', 'educations','socialnetwork'));
 
-        return $pdf->download('tutsmake.pdf');
+        return $pdf->download('resume.pdf');
 
      
 

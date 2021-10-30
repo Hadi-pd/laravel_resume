@@ -49,6 +49,8 @@ class ResumeController extends Controller
             'work_subject' => $request->work_subject ,
             'about' => $request->about,
             'Age' => $request->age,
+            'marital' => $request->marital,
+            'military' => $request->military,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -100,6 +102,8 @@ class ResumeController extends Controller
         $person->work_subject = $request->work_subject;
         $person->about = $request->about;
         $person->age = $request->age;
+        $person->marital = $request->marital;
+        $person->military = $request->military;
         $person->email = $request->email;
         $person->phone = $request->phone;
         $person->address = $request->address;

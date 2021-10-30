@@ -18,5 +18,7 @@ class PersonalInfo extends Model
          'phone',
          'address',
          'image',
+         'marital',
+         'military',
     ];
 }

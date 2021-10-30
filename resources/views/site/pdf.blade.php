@@ -177,6 +177,14 @@
                                 <td>{{ $resume ? $resume->Age : ' ' }}</td>
                             </tr>
                             <tr>
+                                <td>تأهل</td>
+                                <td>{{ $resume ? $resume->marital : ' ' }}</td>
+                            </tr>
+                            <tr>
+                                <td>نظام وظیفه</td>
+                                <td>{{ $resume ? $resume->military : ' ' }}</td>
+                            </tr>
+                            <tr>
                                 <td>ایمیل</td>
                                 <td>{{ $resume ? $resume->email : ' ' }}</td>
                             </tr>
