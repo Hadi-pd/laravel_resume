@@ -139,3 +139,27 @@ footer a:not(.nav-link) {
   .page-break {
     padding-top: 5rem;
     page-break-before: always; } }
+
+    /*  */
+
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: #4a89dc;
+      color: white;
+      cursor: pointer;
+      padding: 0px;
+      height: 31px;
+      width: 30px;
+      border-radius: 50%;
+    }
+    
+    #myBtn:hover {
+      background-color: #3f74bb;
+    }

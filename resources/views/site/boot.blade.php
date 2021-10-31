@@ -32,12 +32,12 @@
                     <nav role="navigation">
                         <ul class="nav justify-content-center">
 
-                            @foreach ( $socialnetwork as $network )
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{$network->link}}" title="{{$network->name}}">
-                                    <i class="fab fa-{{$network->icon}}"></i>
-                                    <span class="menu-title sr-only">{{$network->name}}</span></a>
-                            </li>
+                            @foreach ($socialnetwork as $network)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ $network->link }}" title="{{ $network->name }}">
+                                        <i class="fab fa-{{ $network->icon }}"></i>
+                                        <span class="menu-title sr-only">{{ $network->name }}</span></a>
+                                </li>
                             @endforeach
                         </ul>
                     </nav>
@@ -46,6 +46,7 @@
         </div>
     </header>
     <div class="page-content">
+        <a id="upup" name="upup"></a>
         <div class="container">
             <div class="cover shadow-lg bg-white">
                 <div class="cover-bg p-3 p-lg-4 text-white">
@@ -161,7 +162,7 @@
                         @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
-                                    <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">در 
+                                    <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">در
                                             {{ $work->company_name }}</span></div>
                                     <div class="text-muted text-small mb-2">{{ $work->date }} </div>
                                     <div>
@@ -199,7 +200,7 @@
                             <div class="my-2">
                                 {{-- <form action="https://formspree.io/your@email.com" method="POST"> --}}
 
-                                <form action="{{url('sendcontact')}}" method="POST">
+                                <form action="{{ url('sendcontact') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-6">
@@ -233,14 +234,14 @@
                         <div class="col d-none d-print-block">
                             <div class="mt-2">
                                 <div>
-                                    @foreach ($socialnetwork as $network )
-                                    <div class="mb-2">
-                                        <div class="text-dark"><i
-                                                class="fab fa-{{$network->icon}} mr-1"></i><span>{{$network->link}}</span>
+                                    @foreach ($socialnetwork as $network)
+                                        <div class="mb-2">
+                                            <div class="text-dark"><i
+                                                    class="fab fa-{{ $network->icon }} mr-1"></i><span>{{ $network->link }}</span>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
-                                 
+
                                 </div>
                             </div>
                         </div>
@@ -256,13 +257,14 @@
                 <div class="footer-nav">
                     <nav role="navigation">
                         <ul class="nav justify-content-center">
-                           
-                            @foreach ( $socialnetwork as $network )
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{$network->link}}" title="{{$network->name}}">
-                                    <i class="fab fa-{{$network->icon}}"></i>
-                                    <span class="menu-title sr-only">{{$network->name}}</span></a>
-                            </li>
+
+                            @foreach ($socialnetwork as $network)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ $network->link }}"
+                                        title="{{ $network->name }}">
+                                        <i class="fab fa-{{ $network->icon }}"></i>
+                                        <span class="menu-title sr-only">{{ $network->name }}</span></a>
+                                </li>
                             @endforeach
                         </ul>
                     </nav>
@@ -270,9 +272,18 @@
             </div>
             <div class="text-small">
                 {{-- <div class="mb-1">&copy; Right Resume. All rights reserved.</div> --}}
-                <div> <a href="https://ebtekareno.ir/" target="_blank">Ebtekareno</a></div>
+                <div>
+                    <a href="https://ebtekareno.ir/" target="_blank">Ebtekareno</a>
+                </div>
             </div>
         </div>
+        <button onclick="topFunction()" id="myBtn" class="shadow-sm" title="Go to top">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path>
+            </svg>
+        </button>
     </footer>
     <script src="js/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="js/aos.js?ver=1.2.0"></script>

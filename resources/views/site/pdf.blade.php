@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="fa-IR">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $resume ? $resume->name : 'Resume Creator' }}</title>
     <noscript>
         <style type="text/css">
@@ -15,23 +13,19 @@
                 font-family: "fa", sans-serif;
                 color: #222;
             }
-
             .timeline {
                 border-right: 2px solid #E6E9ED;
                 padding: 1rem 0;
             }
-
             .timeline-card {
                 position: relative;
                 margin-right: 31px;
                 border-right: 2px solid;
                 margin-bottom: 2rem;
             }
-
             .timeline-card:last-child {
                 margin-bottom: 1rem;
             }
-
             .timeline-card:before {
                 content: '';
                 display: inline-block;
@@ -45,7 +39,6 @@
                 border: 2px solid;
                 z-index: 2;
             }
-
             .timeline-card:after {
                 content: '';
                 display: inline-block;
@@ -57,39 +50,30 @@
                 right: -29px;
                 z-index: 1;
             }
-
             .timeline-card-primary {
                 border-right-color: #4A89DC;
             }
-
             .timeline-card-primary:before {
                 border-color: #4A89DC;
             }
-
             .timeline-card-primary:after {
                 background-color: #4A89DC;
             }
-
             .timeline-card-success {
                 border-right-color: #37BC9B;
             }
-
             .timeline-card-success:before {
                 border-color: #37BC9B;
             }
-
             .timeline-card-success:after {
                 background-color: #37BC9B;
             }
-
             html {
                 scroll-behavior: smooth;
             }
-
             .cover {
                 border-radius: 10px;
             }
-
             .cover-bg {
                 /* text-align: center; */
                 color: #fff;
@@ -98,11 +82,9 @@
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.12'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
                 border-radius: 10px 10px 0 0;
             }
-
             .avatar img {
                 border-radius: 10px;
             }
-
             .card-body {
                 border: 1px solid #ddd;
                 background:#fcfcfc;
@@ -113,31 +95,24 @@
                 padding: 15px;
                 border-right: none;
             }
-
             .float-right {
                 float: right;
             }
-
             .width50 {
                 width: 105mm;
             }
-
             .white100 {
                 width: 100%;
             }
-
             .white70 {
                 width: 145mm;
             }
-
             .white30 {
                 width: 60mm;
             }
-
         </style>
     </noscript>
 </head>
-
 <body id="top">
     <div class="page-content">
         <div class="container">
@@ -204,7 +179,6 @@
             <div class="skills-section px-3 px-lg-4">
                 <h2 class="h3 mb-3">مهارت های فنی </h2>
                 <div class="row skills_row">
-
                     <table
                         style=" width:100%;">
                         <tr>
@@ -212,15 +186,12 @@
                                 <div class="col-md-6">
                                     @foreach ($skills as $skill)
                                         @if (!$skill->is_other)
-                                            <div>
-                                                <span style="font-size:{{ $skill->percent }}px">{{ $skill->skill }}</span>
-
-                                                {{ $skill->percent }}%
-
-                                                {{-- <div>
-                                                    <div style="width: {{ $skill->percent }}%; height:2px; background:#4a89dc;">
+                                            <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span>
+                                                <div class="progress my-1">
+                                                    {{-- <label for="file">{{ $skill->skill }}:</label> --}}
+                                                        <progress id="file" max="100" value="{{ $skill->percent }}"> {{ $skill->percent }}% </progress>
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         @endif
                                     @endforeach
@@ -230,19 +201,11 @@
                                 <div class="col-md-6">
                                     @foreach ($skills as $skill)
                                         @if ($skill->is_other)
-                                        <div>
-                                            <span style="font-size:{{ $skill->percent }}px">{{ $skill->skill }}</span>
-                                            {{ $skill->percent }}%
-                                        </div>
-                                            {{-- <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span>
+                                            <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span>
                                                 <div class="progress my-1">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        data-aos="zoom-in-right" data-aos-delay="400"
-                                                        data-aos-anchor=".skills-section"
-                                                        style="width: {{ $skill->percent }}%" aria-valuenow="90"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <progress id="file" max="100" value="{{ $skill->percent }}"> {{ $skill->percent }}% </progress>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         @endif
                                     @endforeach
                                 </div>
@@ -290,7 +253,6 @@
             </div>
             <hr class="d-print-none" />
             <h2 class="h3 mb-4">تماس با من</h2>
-
             <table
             style="width:100%; text-align:right; direction:rtl; margin-top:10px; margin-right:10px; padding:10px;">
             <tr>
@@ -302,7 +264,6 @@
                     </a>
                     @endforeach
                 </td>
-
                 <td style="text-align:center;">
                     <div style="color:#fff;">
                     {!! QrCode::size(150)->generate( url('/').'/#contact'); !!}
@@ -310,10 +271,8 @@
                 </td>
             </tr>
         </table>
-
         </div>
     </div>
     </div>
 </body>
-
 </html>
