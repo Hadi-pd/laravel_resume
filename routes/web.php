@@ -43,7 +43,6 @@ Route::resource('sendcontact', SendContactController::class);
 Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin', [AdminController::class, 'index'])->name('admin');
-    Route::resource('category', CategoryController::class);
     Route::resource('resume', ResumeController::class);
     Route::resource('skills', SkillsController::class);
     Route::resource('workexperience', WorkExperienceController::class);
