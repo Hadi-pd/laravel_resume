@@ -37,13 +37,18 @@ class WorkExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->work_name) {
         $category = WorkExperience::create([  
             'work_name'=> $request->work_name,
             'company_name'=> $request->company_name,
             'date'=> $request->date,
             'description'=> $request->description
         ]);
+        session()->flash('success', 'Stored Successfully !');
         return redirect()->back();
+    }
+    session()->flash('error', 'Something wrong happend !');
+    return redirect()->back();
     }
 
     /**
@@ -79,14 +84,18 @@ class WorkExperienceController extends Controller
      */
     public function update(Request $request, $work)
     {
-
+        if ($request->work_name) {
         $cat=WorkExperience::find($work);
         $cat->work_name = $request->work_name;
         $cat->company_name = $request->company_name;
         $cat->date = $request->date;
         $cat->description = $request->description;
         $cat->save();
-        return redirect()->back();
+        session()->flash('success', 'Update Successfully !');
+            return redirect('workexperience');
+        }
+        session()->flash('error', 'Something wrong happend !');
+        return redirect('workexperience');
     }
 
     /**
