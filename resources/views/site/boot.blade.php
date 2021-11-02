@@ -52,7 +52,7 @@
                 <div class="cover-bg p-3 p-lg-4 text-white">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
-                            <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="images/avatar.jpg"
+                            <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="{{ asset('images/avatar.jpg') }}"
                                     width="200" height="200" /></div>
                         </div>
                         <div class="col-lg-8 col-md-7 text-center text-md-start">
