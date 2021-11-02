@@ -34,7 +34,8 @@ Route::get('create-pdf-file', [PDFController::class, 'index']);
 Route::get('/', function () {
     $resume = PersonalInfo::first();
     $skills = ProfessionalSkill::all();
-    $works = WorkExperience::all();
+    //$works = WorkExperience::all();
+    $works = WorkExperience::orderBy('id','desc')->get();
     $educations = Education::all();
     $socialnetwork = SocialNetwork::all();
     return view('site.boot', compact('resume', 'skills', 'works', 'educations', 'socialnetwork'));
