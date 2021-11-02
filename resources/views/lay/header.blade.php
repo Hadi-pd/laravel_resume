@@ -87,6 +87,15 @@
                 </nav>
                 <div class="main-panel">
                     <div class="content-wrapper">
+                        @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                    @elseif (session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif
                         <div class="home-tab">
                             <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                                 <div>
