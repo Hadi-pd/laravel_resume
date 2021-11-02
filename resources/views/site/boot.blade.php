@@ -162,8 +162,8 @@
                         @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
-                                    <div class="h5 mb-1">{{ $work->work_name }}<span class="text-muted h6">در
-                                            {{ $work->company_name }}</span></div>
+                                    <div class="h5 mb-1"> {{ $work->work_name }} <span class="text-muted h6"> در 
+                                            {{ $work->company_name }} </span></div>
                                     <div class="text-muted text-small mb-2">{{ $work->date }} </div>
                                     <div>
                                         {{ $work->description }}
