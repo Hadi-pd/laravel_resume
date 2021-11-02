@@ -37,11 +37,16 @@ class SocialNetworkController extends Controller
      */
     public function store(Request $request)
     {
-        $data = SocialNetwork::create([
-            'name' => $request->name,
-            'icon' => $request->icon,
-            'link' => $request->link,
-        ]);
+        if ($request->name) {
+            $data = SocialNetwork::create([
+                'name' => $request->name,
+                'icon' => $request->icon,
+                'link' => $request->link,
+            ]);
+            session()->flash('success', 'Stored Successfully !');
+            return redirect()->back();
+        }
+        session()->flash('error', 'Something wrong happend !');
         return redirect()->back();
     }
 
@@ -66,7 +71,7 @@ class SocialNetworkController extends Controller
     {
         $edit = true;
         $socialnetwork = SocialNetwork::find($socialnetwork);
-        return view('resume.socialnetwork',compact('socialnetwork','edit'));
+        return view('resume.socialnetwork', compact('socialnetwork', 'edit'));
     }
 
     /**
@@ -78,12 +83,17 @@ class SocialNetworkController extends Controller
      */
     public function update(Request $request, $network)
     {
-        $data = SocialNetwork::find($network);
-        $data->name = $request-> name;
-        $data->icon = $request-> icon;
-        $data->link = $request-> link;
-        $data->save();
-        return redirect(route('admin'));
+        if ($request->name) {
+            $data = SocialNetwork::find($network);
+            $data->name = $request->name;
+            $data->icon = $request->icon;
+            $data->link = $request->link;
+            $data->save();
+            session()->flash('success', 'Update Successfully !');
+            return redirect('socialnetwork');
+        }
+        session()->flash('error', 'Something wrong happend !');
+        return redirect('socialnetwork');
     }
 
     /**
@@ -96,6 +106,7 @@ class SocialNetworkController extends Controller
     {
         $data = SocialNetwork::find($network);
         $data->delete();
-        return redirect(route('admin'));
+        session()->flash('success', 'Deleted Successfully !');
+        return redirect()->back();
     }
 }
