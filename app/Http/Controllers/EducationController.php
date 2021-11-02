@@ -37,13 +37,18 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->college) {
         $category = Education::create([  
             'education_subject'=> $request->education_subject,
             'college'=>           $request->college,
             'date'=>              $request->date,
             'description'=>       $request->description
         ]);
+        session()->flash('success', 'Stored Successfully !');
         return redirect()->back();
+    }
+    session()->flash('error', 'Something wrong happend !');
+    return redirect()->back();
     }
 
     /**
@@ -79,14 +84,20 @@ class EducationController extends Controller
      */
     public function update(Request $request, $education)
     {
+        if ($request->college) {
         $cat=Education::find($education);
         $cat->education_subject = $request->education_subject;
         $cat->college = $request->college;
         $cat->date = $request->date;
         $cat->description = $request->description;
         $cat->save();
-        return redirect()->back();
+        session()->flash('success', 'Update Successfully !');
+            return redirect('education');
+        }
+        session()->flash('error', 'Something wrong happend !');
+        return redirect('education');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -98,6 +109,7 @@ class EducationController extends Controller
     {
         $cat=Education::find($education);
         $cat->delete();
+        session()->flash('success', 'Deleted Successfully !');
         return redirect()->back();
     }
 }
