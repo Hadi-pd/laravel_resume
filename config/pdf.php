@@ -26,8 +26,8 @@ return [
 	'font_path' => base_path('public/fonts/'),
 	'font_data' => [
 	   'fa' => [
-		  'R'  => 'Vazir-Medium.ttf',
-		  'B'  => 'Vazir-Bold.ttf',
+		  'R'  => 'Vazir-Regular-FD.ttf',
+		  'B'  => 'Vazir-Bold-FD.ttf',
 		  'useOTL' => 0xFF,
 		  'useKashida' => 75,
 	   ],
