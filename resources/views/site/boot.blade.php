@@ -30,11 +30,12 @@
                 <h1 class="site-title mb-0">{{ $resume ? $resume->name : '' }}</h1>
                 <div class="site-nav">
                     <nav role="navigation">
-                        <ul class="nav justify-content-center">
+                        <ul class="nav justify-content-center" style="direction: ltr;">
 
                             @foreach ($socialnetwork as $network)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ $network->link }}" title="{{ $network->name }}">
+                                    <a class="nav-link" href="{{ $network->link }}"
+                                        title="{{ $network->name }}">
                                         <i class="fab fa-{{ $network->icon }}"></i>
                                         <span class="menu-title sr-only">{{ $network->name }}</span></a>
                                 </li>
@@ -51,11 +52,11 @@
             <div class="cover shadow-lg bg-white">
                 <div class="cover-bg p-3 p-lg-4 text-white">
                     <div class="row">
-                        <div class="col-lg-4 col-md-5">
-                            <div class="avatar hover-effect bg-white shadow-sm p-1"><img src="{{ asset('images/avatar.jpg') }}"
-                                    width="200" height="200" /></div>
+                        <div class="col-lg-4 col-md-5 d-print-none">
+                            <div class="avatar hover-effect bg-white shadow-sm p-1"><img
+                                    src="{{ asset('images/avatar.jpg') }}" width="200" height="200" /></div>
                         </div>
-                        <div class="col-lg-8 col-md-7 text-center text-md-start">
+                        <div class="col-lg-8 col-md-7 text-center text-md-start d-print-none">
                             <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0">
                                 {{ $resume ? $resume->name : '' }}</h2>
                             <p data-aos="fade-left" data-aos-delay="100">{{ $resume ? $resume->work_subject : '' }}
@@ -64,6 +65,17 @@
                                     class="btn btn-light text-dark shadow-sm mt-1 me-1" href="create-pdf-file"
                                     target="_blank" download>دانلود رزومه</a><a class="btn btn-success shadow-sm mt-1"
                                     href="#contact">دعوت به همکاری</a></div>
+                        </div>
+                    </div>
+                    <div class="row d-none d-print-block">
+                        <div class="col-lg-4 col-md-5 d-none d-print-block">
+                            <div class="avatar hover-effect bg-white shadow-sm p-1"><img
+                                    src="{{ asset('images/avatar.jpg') }}" width="200" height="200" /></div>
+                        </div>
+                        <div class="col-lg-7 col-md-6 text-md-start d-none d-print-block">
+                            <h2 class="h1" style="margin-right:230px;">{{ $resume ? $resume->name : '' }}
+                            </h2>
+                            <p style="margin-right:230px;">{{ $resume ? $resume->work_subject : '' }} </p>
                         </div>
                     </div>
                 </div>
@@ -122,11 +134,19 @@
                     <h2 class="h3 mb-3">مهارت های فنی </h2>
                     <div class="row skills_row">
                         <div class="col-md-6">
-
                             @foreach ($skills as $skill)
                                 @if (!$skill->is_other)
                                     <div class="mb-2 skills_mb-2">
-                                        <span>{{ $skill->skill }}</span>
+                                        @if ( $skill->percent > 0 && $skill->percent <= 25)
+                                        @php ($level = "basic")
+                                        @elseif ($skill->percent > 25 && $skill->percent <= 50)
+                                        @php ($level = "intermediate")
+                                        @elseif ($skill->percent > 50 && $skill->percent <= 75)
+                                        @php ($level = "advanced")
+                                        @elseif ($skill->percent > 75 && $skill->percent <= 100)
+                                        @php ($level = "expert")
+                                        @endif
+                                        <span>{{ $skill->skill }}</span><span style="color:#656d78; font-size: 14px;"> ({{$level}})</span>
                                         <div class="progress my-1">
                                             <div class="progress-bar bg-primary" role="progressbar"
                                                 data-aos="zoom-in-right" data-aos-delay="100"
@@ -141,7 +161,16 @@
                         <div class="col-md-6">
                             @foreach ($skills as $skill)
                                 @if ($skill->is_other)
-                                    <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span>
+                                @if ( $skill->percent > 0 && $skill->percent <= 25)
+                                        @php ($level = "basic")
+                                        @elseif ($skill->percent > 25 && $skill->percent <= 50)
+                                        @php ($level = "intermediate")
+                                        @elseif ($skill->percent > 50 && $skill->percent <= 75)
+                                        @php ($level = "advanced")
+                                        @elseif ($skill->percent > 75 && $skill->percent <= 100)
+                                        @php ($level = "expert")
+                                        @endif
+                                    <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span><span style="color:#656d78; font-size: 14px;"> ({{$level}})</span>
                                         <div class="progress my-1">
                                             <div class="progress-bar bg-success" role="progressbar"
                                                 data-aos="zoom-in-right" data-aos-delay="400"
@@ -162,7 +191,8 @@
                         @foreach ($works as $work)
                             <div class="timeline-card timeline-card-primary card shadow-sm">
                                 <div class="card-body">
-                                    <div class="h5 mb-1"> {{ $work->work_name }} <span class="text-muted h6"> در 
+                                    <div class="h5 mb-1"> {{ $work->work_name }} <span class="text-muted h6">
+                                            در
                                             {{ $work->company_name }} </span></div>
                                     <div class="text-muted text-small mb-2">{{ $work->date }} </div>
                                     <div>
@@ -236,8 +266,9 @@
                                 <div>
                                     @foreach ($socialnetwork as $network)
                                         <div class="mb-2">
-                                            <div class="text-dark"><i
-                                                    class="fab fa-{{ $network->icon }} mr-1"></i><span>{{ $network->link }}</span>
+                                            <div class="text-dark" style="direction:ltr"><i
+                                                    class="fab fa-{{ $network->icon }} mr-1"></i> <span>
+                                                    {{ $network->link }}</span>
                                             </div>
                                         </div>
                                     @endforeach
@@ -256,8 +287,7 @@
                 <div class="h4">{{ $resume ? $resume->name : '' }}</div>
                 <div class="footer-nav">
                     <nav role="navigation">
-                        <ul class="nav justify-content-center">
-
+                        <ul class="nav justify-content-center" style="direction: ltr;">
                             @foreach ($socialnetwork as $network)
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ $network->link }}"
