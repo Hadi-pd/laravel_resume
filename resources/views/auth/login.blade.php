@@ -31,6 +31,10 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <div class="block mt-4">
+                {!! NoCaptcha::renderJs() !!}
+                {!! NoCaptcha::display() !!}
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
