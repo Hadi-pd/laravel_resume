@@ -45,16 +45,27 @@
                                 <div class="form-group">
                                     <label for="exampleInputName1">marital</label>
                                     <select class="form-select" aria-label="Default select example" name="marital">
+                                        @if ($resume)
                                         <option value="مجرد" {{ ($resume->marital == 'مجرد') ? 'selected' : '' }}>مجرد</option>
                                         <option value="متأهل" {{ ($resume->marital == 'متأهل') ? 'selected' : '' }}>متأهل</option>
+                                        @else
+                                        <option value="مجرد" >مجرد</option>
+                                        <option value="متأهل" > متأهل</option>
+                                        @endif
                                       </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">military</label>
                                     <select class="form-select" aria-label="Default select example" name="military">
+                                        @if ($resume)
                                         <option value="پایان خدمت" {{ ($resume->military == 'پایان خدمت') ? 'selected' : '' }}>پایان خدمت</option>
                                         <option value="معاف" {{ ($resume->military == 'معاف') ? 'selected' : '' }}>معاف</option>
                                         <option value="هنوز نرفته ام" {{ ($resume->military == 'هنوز نرفته ام') ? 'selected' : '' }}>هنوز نرفته ام</option>
+                                        @else
+                                        <option value="پایان خدمت">پایان خدمت</option>
+                                        <option value="معاف">معاف</option>
+                                        <option value="هنوز نرفته ام" >هنوز نرفته ام</option>
+                                        @endif
                                       </select>
                                 </div>
                                 

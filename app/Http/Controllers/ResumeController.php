@@ -14,9 +14,9 @@ class ResumeController extends Controller
      */
     public function index()
     {  
-       // $edit = false;
+    //    $edit = false;
         $resume = PersonalInfo::first();
-        $edit = ($resume->name) ? true : false;
+        $edit = ($resume) ? true : false;
         return view('resume.index',compact('resume','edit'));
     }
 
@@ -109,7 +109,7 @@ class ResumeController extends Controller
         $person->address = $request->address;
         $person->image = '/images/'.$imageName;
         $person->save();
-        return redirect(route('admin'));
+        return redirect()->back();
     }
 
     /**
