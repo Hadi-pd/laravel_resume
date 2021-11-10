@@ -36,6 +36,12 @@ class SendContactController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = $request->validate([
+            'name' => 'required|nullable|string',
+            'email' => 'nullable|email',
+            'message' => 'required|min:5|string',
+            // 'g-recaptcha-response' => 'required|captcha'
+        ]);
         $details = Contact::create([
             'name' => $request->name,
             'email' => $request->email,
