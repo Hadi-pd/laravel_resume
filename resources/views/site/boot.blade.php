@@ -25,6 +25,10 @@
 
 <body id="top">
     <header class="d-print-none">
+        <a style="position: absolute;" target="_blank" href="https://github.com/Hadi-pd/laravel_resume"><img
+                loading="lazy" width="149" height="149"
+                src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
+                class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
         <div class="container text-center text-lg-left">
             <div class="py-3 clearfix">
                 <h1 class="site-title mb-0">{{ $resume ? $resume->name : '' }}</h1>
@@ -34,7 +38,7 @@
 
                             @foreach ($socialnetwork as $network)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ $network->link }}"
+                                    <a class="nav-link" target="_blank" href="https://{{ $network->link }}"
                                         title="{{ $network->name }}">
                                         <i class="fab fa-{{ $network->icon }}"></i>
                                         <span class="menu-title sr-only">{{ $network->name }}</span></a>
@@ -137,23 +141,31 @@
                             @foreach ($skills as $skill)
                                 @if (!$skill->is_other)
                                     <div class="mb-2 skills_mb-2">
-                                        @if ( $skill->percent > 0 && $skill->percent <= 25)
-                                        @php ($level = "basic")
+                                        @if ($skill->percent > 0 && $skill->percent <= 25)
+                                            @php($level = 'basic')
                                         @elseif ($skill->percent > 25 && $skill->percent <= 50)
-                                        @php ($level = "intermediate")
-                                        @elseif ($skill->percent > 50 && $skill->percent <= 75)
-                                        @php ($level = "advanced")
-                                        @elseif ($skill->percent > 75 && $skill->percent <= 100)
-                                        @php ($level = "expert")
-                                        @endif
-                                        <span>{{ $skill->skill }}</span><span style="color:#656d78; font-size: 14px;"> ({{$level}})</span>
-                                        <div class="progress my-1">
-                                            <div class="progress-bar bg-primary" role="progressbar"
-                                                data-aos="zoom-in-right" data-aos-delay="100"
-                                                data-aos-anchor=".skills-section"
-                                                style="width: {{ $skill->percent }}%" aria-valuenow="90"
-                                                aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                            @php($level = 'intermediate') @elseif ($skill->percent > 50 &&
+                                            $skill->percent <= 75) @php($level = 'advanced') @elseif ($skill->
+                                                    percent > 75 && $skill->percent <= 100) @php($level = 'expert')
+                                                        @endif
+                                                        <span>{{ $skill->skill }}</span><span
+                                                            style="color:#656d78; font-size: 14px;">
+                                                            ({{ $level }})</span>
+                                                        <div class="progress my-1">
+                                                            <div class="progress-bar bg-primary" role="progressbar"
+                                                                data-aos="zoom-in-right" data-aos-delay="100"
+                                                                data-aos-anchor=".skills-section"
+                                                                style="width: {{ $skill->percent }}%"
+                                                                aria-valuenow="90" aria-valuemin="0"
+                                                                aria-valuemax="100">
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress my-1 d-none d-print-block"
+                                                            style="direction:ltr;">
+                                                            <progress id="file" max="100" style="direction:ltr"
+                                                                value="{{ $skill->percent }}">
+                                                                {{ $skill->percent }}% </progress>
+                                                        </div>
                                     </div>
                                 @endif
                             @endforeach
@@ -161,26 +173,34 @@
                         <div class="col-md-6">
                             @foreach ($skills as $skill)
                                 @if ($skill->is_other)
-                                @if ( $skill->percent > 0 && $skill->percent <= 25)
-                                        @php ($level = "basic")
-                                        @elseif ($skill->percent > 25 && $skill->percent <= 50)
-                                        @php ($level = "intermediate")
-                                        @elseif ($skill->percent > 50 && $skill->percent <= 75)
-                                        @php ($level = "advanced")
-                                        @elseif ($skill->percent > 75 && $skill->percent <= 100)
-                                        @php ($level = "expert")
-                                        @endif
-                                    <div class="mb-2 skills_mb-2"><span>{{ $skill->skill }}</span><span style="color:#656d78; font-size: 14px;"> ({{$level}})</span>
-                                        <div class="progress my-1">
-                                            <div class="progress-bar bg-success" role="progressbar"
-                                                data-aos="zoom-in-right" data-aos-delay="400"
-                                                data-aos-anchor=".skills-section"
-                                                style="width: {{ $skill->percent }}%" aria-valuenow="90"
-                                                aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
+                                    @if ($skill->percent > 0 && $skill->percent <= 25)
+                                        @php($level = 'basic')
+                                    @elseif ($skill->percent > 25 && $skill->percent <= 50)
+                                        @php($level = 'intermediate') @elseif ($skill->percent > 50 &&
+                                        $skill->percent <= 75) @php($level = 'advanced') @elseif ($skill->percent
+                                                > 75 && $skill->percent <= 100) @php($level = 'expert')
+                                                    @endif
+                                                    <div class="mb-2 skills_mb-2">
+                                                        <span>{{ $skill->skill }}</span><span
+                                                            style="color:#656d78; font-size: 14px;">
+                                                            ({{ $level }})</span>
+                                                        <div class="progress my-1 d-print-none">
+                                                            <div class="progress-bar bg-success" role="progressbar"
+                                                                data-aos="zoom-in-right" data-aos-delay="400"
+                                                                data-aos-anchor=".skills-section"
+                                                                style="width: {{ $skill->percent }}%"
+                                                                aria-valuenow="90" aria-valuemin="0"
+                                                                aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div class="progress my-1 d-none d-print-block"
+                                                            style="direction:ltr">
+                                                            <progress id="file" max="100" style="direction:ltr"
+                                                                value="{{ $skill->percent }}">
+                                                                {{ $skill->percent }}% </progress>
+                                                        </div>
+                                                    </div>
+                                    @endif
+                                @endforeach
                         </div>
                     </div>
                 </div>
@@ -230,6 +250,8 @@
                             <div class="my-2">
                                 {{-- <form action="https://formspree.io/your@email.com" method="POST"> --}}
 
+                                {!! $errors->first('email', '<div class="error-block alert alert-danger">:message</div>') !!}
+
                                 <form action="{{ url('sendcontact') }}" method="POST">
                                     @csrf
                                     <div class="row">
@@ -240,25 +262,48 @@
                                         <div class="col-6">
                                             <input class="form-control" type="email" id="email" name="email"
                                                 placeholder="ایمیل شما" required>
+                                            @if ($errors->has('email'))
+                                                <p style="text-align: center; color:red; font-size:12px"
+                                                    class="error">{{ $errors->first('email') }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="form-group my-2">
                                         <textarea class="form-control" style="resize: none;" id="message"
                                             name="message" rows="4" placeholder="پیام شما" required></textarea>
+
+                                        @if ($errors->has('message'))
+                                            <p style="text-align: center; color:red; font-size:12px"
+                                                class="error">{{ $errors->first('message') }}</ح>
+                                        @endif
                                     </div>
-                                    <button class="btn btn-primary mt-2" type="submit">ارسال</button>
+                                    <div style="direction: ltr" class="row">
+                                        <div class="col-md-8 col-sm-12">
+                                            {!! NoCaptcha::renderJs() !!}
+                                            {!! NoCaptcha::display() !!}
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <button class="btn btn-primary mt-2" type="submit">ارسال</button>
+                                        </div>
+                                    </div>
+                                    {{-- <button class="btn btn-primary mt-2" type="submit">ارسال</button> --}}
                                 </form>
 
                             </div>
                         </div>
                         <div class="col">
-                            <div class="mt-2">
+                            <div class="mt-2 d-print-none">
                                 <h3 class="h6">آدرس</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->address : '' }}</div>
                                 <h3 class="h6">تلفن</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->phone : '' }}</div>
                                 <h3 class="h6">ایمیل</h3>
                                 <div class="pb-2 text-secondary">{{ $resume ? $resume->email : '' }}</div>
+                            </div>
+                            <div class="mt-2 d-none d-print-block">
+                                <div style="color:#fff;">
+                                    {!! QrCode::size(150)->generate(url('/') . '/#contact') !!}
+                                </div>
                             </div>
                         </div>
                         <div class="col d-none d-print-block">
@@ -290,7 +335,7 @@
                         <ul class="nav justify-content-center" style="direction: ltr;">
                             @foreach ($socialnetwork as $network)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ $network->link }}"
+                                    <a class="nav-link" target="_blank" href="https://{{ $network->link }}"
                                         title="{{ $network->name }}">
                                         <i class="fab fa-{{ $network->icon }}"></i>
                                         <span class="menu-title sr-only">{{ $network->name }}</span></a>
