@@ -9,6 +9,7 @@
         <style type="text/css">
             body {
                 text-align: right;
+                direction:rtl;
                 /* font-family: "Vazir", sans-serif; */
                 font-family: "fa", sans-serif;
                 color: #222;
@@ -178,7 +179,7 @@
             <hr class="d-print-none" />
             <div class="skills-section px-3 px-lg-4">
                 <h2 class="h3 mb-3">مهارت های فنی </h2>
-                <div class="row skills_row">
+                <div class="row skills_row" style="direction:ltr;">
                     <table
                         style=" width:100%;">
                         <tr>
